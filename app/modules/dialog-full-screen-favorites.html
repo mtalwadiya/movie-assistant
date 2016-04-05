@@ -1,0 +1,28 @@
+
+<div class="dialog-fullscreen-favorites-list">
+    <!-- Button to hide favorites -->
+    <div class="dialog-fullscreen-header">
+        <div class="dialog-favorite-close" ng-click="dialogCtrl.toggleFavoritesPanel()"></div>
+        <!-- Heart icon -->
+        <favorite-indicator class="dialog-favorite-indicator"></favorite-indicator>
+    </div>
+
+    <!-- Scrollable parent -->
+    <div class="dialog-fullscreen-favorite-scroll">
+      <!-- Repeat the following for each favorite -->
+      <div style="background-image: url('{{favorite.posterPath}}');{{favorite.posterPath.search('jpg')?'':'background:#323232'}}" 
+            class="dialog-favorite-full-screen-image" 
+            ng-if="dialogCtrl.getFavorites().length > 0"
+            ng-repeat="favorite in dialogCtrl.getFavorites()"
+            ng-click="showPreview(favorite)"
+            favorite-options>
+            <!-- Add a button to unfavorite the movie-->
+            <span class="dialog-full-screen-overlay">
+               <img class="dialog-fav-del" ng-click="dialogCtrl.toggleFavorite(favorite)" src="./images/Unfavorite.svg">
+            </span>
+            <div style="position:absolute;" ng-if="!(favorite.posterPath.search('jpg'))">
+                <p class="dialog-favorite-left-movie-poster" >{{favorite.movieName}} </p>
+            </div>
+      </div>
+    </div>
+</div>

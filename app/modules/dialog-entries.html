@@ -1,0 +1,52 @@
+
+<section class="dialog-response dialog-response-type-{{dialogCtrl.responseType}}">
+    <div id="dialog-cell" class="dialog-conversation-cell">
+        <div id="conversationParent" class="dialog-entries col-xs-12">
+            <!-- Welcome message, hard-coded -->
+            <div class="dialog-entry row">
+                <div class="dialog-watson-row">
+                    <div class="dialog-segment-bkg">
+                        <span class="dialog-row-text">Hi! I can help you discover movies. 
+                        Are you looking for now playing or upcoming movies? Looking for any specific genre?</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Actual conversation between user and system -->
+            <div ng-animate-children class="dialog-entry row" ng-repeat="entry in dialogCtrl.conversation">
+                <!--Display user entered text -->
+                <div ng-if="entry.message" class="dialog-user-row">
+                    <div class="dialog-segment-bkg">
+                        <span class="dialog-row-text">{{entry.message}}</span> 
+                    </div>
+                </div><hr class="dialog-line-separator">
+                  
+                <!-- 
+                Display watson response using directive. The directive takes care of adding
+                animation while the server is responding, and removing animation once response
+                is received
+                -->
+                <div ng-class="!entry.responses ? 'watson-thinking' : 'no-class'">
+                    <div class="dialog-watson-row" ng-if="entry != null && entry.responses != null">
+                        <div class="dialog-segment-bkg">
+                            <span class="dialog-row-text" ng-bind-html="entry.responses "></span>
+                        </div>
+                    </div><hr class="dialog-line-separator">
+                </div>
+                
+                <!-- if movies are returned, display them after the Watson response -->
+                <div ng-if="entry.movies" class="dialog-movie-links-parent">
+                    <a movie class="dialog-movie" content="movie" ng-repeat="movie in entry.movies" tabindex="1" ng-keypress="keypressed($event)"></a>
+                </div>
+            </div>
+            <!-- If Watson makes a comment on the selected movie, show it here -->
+            <!-- This div must be outside the repeat as we only want to add it to the last conversation segment -->
+            <div ng-if="dialogCtrl.selectedMovie && dialogCtrl.selectedMovie.movieName" class="dialog-entry row">
+                <div class="dialog-watson-row">
+                    <div class="dialog-segment-bkg">
+                        <span class="dialog-row-text" ng-bind-html="dialogCtrl.selectedMovie.movieName"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
