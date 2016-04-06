@@ -29,7 +29,10 @@
                 var clickAction = function (e) {
                     //Once the movie 'button' is clicked, notify the controller
                     //that a new movie must be selected.
-                    scope.dialogCtrl.selectMovie(movie);
+                	if(movie.movieId !== scope.dialogCtrl.selectedMovie.movieId){
+                		$('#trailerIFrame img').attr('src', '');
+                        scope.dialogCtrl.selectMovie(movie);
+                	}  
                     e.preventDefault();
                     e.stopPropagation();
                 };
