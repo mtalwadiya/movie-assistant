@@ -35,7 +35,7 @@ Use the following commands:
 
 ## Live Demo
 A live version of the app is available here: 
-http://movie-assist.mybluemix.net/
+http://movieassistant.ml/
 
 
 ## Feedback 
