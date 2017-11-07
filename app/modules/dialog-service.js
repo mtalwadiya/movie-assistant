@@ -18,7 +18,7 @@
         	};
         var tmdb = {
         		apiKey : "xxx",
-        		baseUrl : "http://api.themoviedb.org/3/"
+        		baseUrl : "https://api.themoviedb.org/3/"
         	};
         
         var recency = "";
