@@ -24,8 +24,9 @@
                         '<div class="dialog-preview-scroll">' +
                         '<div id="trailerIFrame" class="dialog-trailer"><img src="{{movie.posterPath}}"></div>' +
                         '<h3 id="noTrailerText" class="dialog-trailer-missing dialog-trailer-hidden">No Preview Available</h3>' +
-                        '<div class="dialog-movie-info-spacing"><div class="dialog-movie-name-rating-spacing"></div><span class="dialog-movie-name-rating"><h3 class="dialog-movie-name">{{movie.movieName}}</h3>' +
-                        '<span class="dialog-rating-label"><img src="{{certification}}"></span></span>' +
+                        '<div class="dialog-movie-info-spacing"><div class="dialog-movie-name-rating-spacing"></div>' +
+                        '<span class="dialog-movie-name-rating"><h3 class="dialog-movie-name">{{movie.movieName}}</h3></span>' +
+                        //'<span class="dialog-rating-label"><img src="{{certification}}"></span></span>' +
                         '<favorite class="dialog-favorite-lg" content="{{movie}}"></favorite>' +
                         '<h5 class="dialog-release-label" ng-hide="hideReleaseDate">Release date:<span class="dialog-release-date"> {{movie.localizedDate}}</span></h5>' +
                         '<showtoggle></showtoggle><div class="dialog-rating-spacing"></div><rating></rating></div></div>',

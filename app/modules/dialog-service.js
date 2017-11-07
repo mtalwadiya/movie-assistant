@@ -176,6 +176,7 @@
 		                    		movies.push({
 			                        	"movieName": film.original_title,
 			            				"popularity": film.popularity,
+			            				"vote_average": film.vote_average,
 			            				"movieId": film.id,		
 			            				"overview": film.overview,
 			            				"posterPath": film.poster_path ? ("http://image.tmdb.org/t/p/w185" + film.poster_path) : null,		

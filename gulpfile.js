@@ -93,12 +93,12 @@
 
     return gulp.src(srcFolder + '/index.html')
       .pipe(assets)
-      .pipe($.if('*.js', $.ngAnnotate()))
-      .pipe($.if('*.js', $.if(isProduction, $.uglify())))
-      .pipe($.if('*.css', $.if(isProduction, $.minifyCss())))
+      .pipe($.if('*\\.js', $.ngAnnotate()))
+      .pipe($.if('*\\.js', $.if(isProduction, $.uglify())))
+      .pipe($.if('*\\.css', $.if(isProduction, $.minifyCss())))
       .pipe(assets.restore())
       .pipe($.useref())
-      .pipe($.if('*.html', $.if(isProduction, $.minifyHtml({ 'empty': true, 'quotes': true }))))
+      .pipe($.if('*\\.html', $.if(isProduction, $.minifyHtml({ 'empty': true, 'quotes': true }))))
       .pipe(gulp.dest(distFolder))
       .pipe($.size({ 'title': 'html' }));
   });
