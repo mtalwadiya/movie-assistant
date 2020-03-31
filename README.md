@@ -33,11 +33,3 @@ Use the following commands:
   4. The `/public` directory created after the build is ready to be deployed to any host which supports static files hosting. 
 
 
-## Live Demo
-A live version of the app is available here: 
-http://movieassistant.ml/
-
-
-## Feedback 
-Feedback, suggestions and improvements are welcome.
-
